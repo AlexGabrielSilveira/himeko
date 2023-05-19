@@ -1,0 +1,35 @@
+.mangas {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 60px;
+}
+.card_manga {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    width: 60%;
+
+    box-shadow: 0px 0px 10px 2px #000;
+    margin: 20px;
+    padding: 5px;
+    cursor: pointer;
+    transition: 200ms;
+}
+.card_manga:hover {
+    transition: 200ms;
+    background-color: #302f2f;
+}
+.mangas_infos {
+    padding: 10px;
+    text-align: start;
+}
+.card_manga img {
+    height: 280px;
+    width: 180px;
+}
+.note {
+    
+}
