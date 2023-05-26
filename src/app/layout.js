@@ -1,9 +1,10 @@
-import Navbar from "@/layouts/navbar/Navbar"
+import Navbar from '@/layouts/Navbar'
 import './global.css'
+
 
 export default function RootLayout({ children }) {
  return (
-    <html lang="en">
+    <html lang="pt-br">
       <body>
         <Navbar />
         {children}
