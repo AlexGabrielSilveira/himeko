@@ -4,6 +4,7 @@ import styles from './navbar.module.css'
 import { useState } from 'react'
 import Image from 'next/image'
 import { FaStar} from 'react-icons/fa'
+import Link from 'next/link'
 
 export default function Navbar() {
     const[mangaInfos, setMangaInfos] = useState([])
@@ -21,24 +22,33 @@ export default function Navbar() {
             })
         }
     }
+    function handleClick() {
+        setShowSearch(!showSearch)
+    }
 
     return (
     <>
         <nav className={styles.navbar}>
         <div className={styles.logo}>
-            <h1>Himeko</h1>
+            <Link href='/'>
+                <h1>Himeko</h1>
+            </Link>
         </div>
         <div className={styles.search}>
             <input type="text" placeholder='Pesquise algo ...' onKeyDown={handleChange}/>
+            {showSearch == true ? (<button onClick={handleClick}>Fechar</button>) : ''}
         </div>
         </nav>
         {showSearch == true ? (
+            <>
             <div className={styles.searching}>
             <ul>
                 {mangaInfos?.data?.map((data) => (
                     <>
                         <div key={data.mal_id}>  
-                            <Image src={data.images.webp.image_url} alt={data.title} width={95} height={150}/>
+                            <Link href={`/manga/${data.mal_id}`}>
+                                <Image src={data.images.webp.image_url} alt={data.title} width={95} height={150}/>
+                            </Link>
                             <div>
                                 <li><strong>{data.title}</strong></li>
                                 <li><FaStar /> {data.score}</li>
@@ -49,6 +59,7 @@ export default function Navbar() {
                 ))}
             </ul>
         </div>
+        </>
         ): ''}
     </>
     )

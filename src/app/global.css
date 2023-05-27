@@ -7,3 +7,16 @@
 body {
   background-color: #dfdcdc;
 }
+a {
+  font-weight: bold;
+  color: #2e91a3;
+  transition: 150ms;
+  text-decoration: none;
+}
+a:hover {
+  transition: 150ms;
+  opacity: 0.91;
+}
+li {
+  list-style: none;
+}
